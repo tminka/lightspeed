@@ -1,0 +1,10 @@
+EXPORTS
+Rand
+ResetSeed
+SetSeed
+GetSeed
+RandN
+GammaRand
+BinoRand
+BinoRand32
+BetaRand
