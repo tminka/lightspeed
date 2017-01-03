@@ -10,15 +10,15 @@ To make sure lightspeed is always in your path, create a startup.m
 file in your matlab directory, if you don't already have one, and add
 a line like this:
 
-> addpath(genpath('c:\matlab\lightspeed'))
+    addpath(genpath('c:\matlab\lightspeed'))
 
 Replace 'c:\matlab\lightspeed' with the location of the lightspeed directory.
 
 There are some Matlab Extension (MEX) files that need to be compiled.
 This can be done in matlab via:
 
-> cd c:\matlab\lightspeed
-> install_lightspeed
+    cd c:\matlab\lightspeed
+    install_lightspeed
 
 I recommend using Microsoft Visual C++ as the mex compiler, though this is not required.  You can set the mex compiler by typing 'mex -setup' in matlab.
 
