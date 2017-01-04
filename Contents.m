@@ -1,8 +1,7 @@
 % Lightspeed Toolbox.  
 % Efficient operations for Matlab programming.
-% Version 2.7   03-Oct-2014
+% Version 2.8   04-Jan-2017
 % By Tom Minka
-% (c) Microsoft Corporation. All rights reserved. 
 %
 % Matrix algebra
 %   repmat           - Fast replacement for matlab's repmat.

@@ -1,7 +1,6 @@
 % Statistical Graphics Toolbox.
-% Version 1.2   17-Dec-2007
+% Version 1.3   04-Jan-2017
 % By Thomas Minka
-% (c) Microsoft Corporation. All rights reserved. 
 %
 % Making plots
 %   labeled_curves   - Draw multiple curves in different colors with labels.
