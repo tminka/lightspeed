@@ -55,7 +55,7 @@ Flop counting in lightspeed is a more manual process than in Matlab 5.  In Matla
 
 Manual flop counting has two advantages.  First, it can be different from the operation that you actually performed, allowing you to count the flops for an `idealized' algorithm rather than the one you implemented.  Second, since only the operations that you explicitly count get added to the flop counter, unrelated operations (such as debugging code) will not interfere with the result.  
 
-Incrementing the flop counter on every operation can cause your code to run slower.  To avoid this, you can batch up the count for many operations.  For example, to get the flop count for a loop, you can save time by computing the flops for one iteration of the loop and then multiply by the number of iterations.  For examples, see [fastfit/dirichlet_fit_newton.m](/tminka/fastfit/blob/master/dirichlet_fit_newton.m) or [logreg/train_cg.m](/tminka/logreg/blob/master/train_cg.m).
+Incrementing the flop counter on every operation can cause your code to run slower.  To avoid this, you can batch up the count for many operations.  For example, to get the flop count for a loop, you can save time by computing the flops for one iteration of the loop and then multiply by the number of iterations.  For examples, see [fastfit/dirichlet_fit_newton.m](https://github.com/tminka/fastfit/blob/master/dirichlet_fit_newton.m) or [logreg/train_cg.m](https://github.com/tminka/logreg/blob/master/train_cg.m).
 
 Installation
 ============
