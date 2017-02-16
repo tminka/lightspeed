@@ -155,7 +155,7 @@ if ispc
     % compilation instructions are described at:
     % http://www.mathworks.com/access/helpdesk/help/techdoc/matlab_external/ch1_im15.html#27765
     if atleast78
-			disp('lightspeed''s matfile utility is not supported for this version of Matlab');
+			%disp('lightspeed''s matfile utility is not supported for this version of Matlab, but everything else should work.');
 		elseif atleast65
       % -V5 is required for Matlab >=6.5
       mex('-f',engmatopts,'matfile.c','-V5');
