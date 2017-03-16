@@ -80,6 +80,17 @@ This can be done in matlab via:
 
 I recommend using Microsoft Visual C++ as the mex compiler, though this is not required.  You can set the mex compiler by typing 'mex -setup' in matlab.
 
+You can find timing tests in the tests/ subdirectory.  
+The test_lightspeed.m script will run all tests, and is a good way to check 
+that lightspeed installed properly.
+
+Troubleshooting
+===============
+
+If you are having problems compiling the mex files, check your matlab installation by compiling one of the examples that comes with matlab, such as:
+    mex([matlabroot '/extern/examples/mex/explore.c'])
+If this does not work, then contact MathWorks for help.  You can find some common fixes below.
+
 To use Microsoft Visual C++ 2013 with Matlab 8.1 (R2013a), you will need to download this patch:
 http://www.mathworks.com/matlabcentral/fileexchange/45878-setting-microsoft-visual-c++-2013-as-default-mex-compiler
 
@@ -98,10 +109,6 @@ To compile mex files on a Snow Leopard upgrade, prior to Matlab R2014a:
 1. Go to mexopts.sh in your $HOME/.matlab/ directory, and change the line SDKROOT='/Developer/SDKs/MacOSX10.5.sdk' to SDKROOT='/Developer/SDKs/MacOSX10.6.sdk'. That line is not updated during updating mac OSX, so you need to do manually. This file also exists in the standard matlab bin, so if you run mex with the -v option it will tell you which mexopts.sh file it's looking at.
 
 2. You may also need to change some lines in install_lightspeed.m.  By default, install_lightspeed.m is set up for 64-bit MacOSX 10.6 with gcc-4.0.  If you are using some other version of MacOSX or some other compiler, then you need to edit a few lines (see the comments in that file).
-
-You can find timing tests in the tests/ subdirectory.  
-The test_lightspeed.m script will run all tests, and is a good way to check 
-that lightspeed installed properly.
 
 Changelist
 ==========
