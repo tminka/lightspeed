@@ -60,7 +60,16 @@ if ~isempty(rest)
 end
 % special case for absolute paths
 if pattern(1) == '/'
-  prefix  = '/';
+	if pattern(2) == '/'
+		% special case for UNC paths
+		prefix = ['//' first '/'];
+		[first,rest] = strtok(rest,'/');
+		if ~isempty(rest)
+			rest = rest(2:end);
+		end
+	else
+		prefix  = '/';
+	end
 end
 % absolute path tests:
 % glob('/*.sys')
