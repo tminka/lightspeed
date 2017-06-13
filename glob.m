@@ -61,7 +61,8 @@ end
 % special case for absolute paths
 if pattern(1) == '/'
 	if pattern(2) == '/'
-		prefix = ['//' first];
+		% special case for UNC paths
+		prefix = ['//' first '/'];
 		[first,rest] = strtok(rest,'/');
 		if ~isempty(rest)
 			rest = rest(2:end);
