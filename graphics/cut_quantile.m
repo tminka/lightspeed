@@ -13,7 +13,7 @@ if length(n) > 1
 	b = n;
 else
 	probs = (1:(n-1))/n;
-	b = quantile(unique(x(:)),probs);
+	b = unique(quantile(x(:),probs));
 end
 
 c = ones(size(x));
