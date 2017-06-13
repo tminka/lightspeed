@@ -1,7 +1,10 @@
-function [h,y] = draw_loess(x,y,span,linestyle)
-% span = number of cuts
+function [h,y] = draw_loess(x,y,cutpoints,linestyle)
+%DRAW_LOESS   Draw trend lines.
+% DRAW_LOESS(X,Y,CUTPOINTS) draws lines indicating the average y-coordinate of points falling into in each interval of x-coordinates.
+% CUTPOINTS specifies the number of cuts (where the cuts are computed via cut_quantile), or a vector of cutpoints in x.
+% DRAW_LOESS(X,Y,CUTPOINTS,LINESPEC) also specifies the line style and color.
 
-[c,b] = cut_quantile(double(x),span);
+[c,b] = cut_quantile(double(x),cutpoints);
 b = [min(x) b max(x)];
 % average y's for equal c's
 y = meanByGroup(c,y);
