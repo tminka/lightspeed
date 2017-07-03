@@ -46,6 +46,11 @@ void mexFunction(int nlhs, mxArray *plhs[],
   if(mxIsSparse(nArray))
     mexErrMsgTxt("Cannot handle sparse matrices.  Sorry.");
 
+	if(len == 0) {
+		plhs[0] = mxCreateDoubleMatrix(1, 0, mxREAL);
+		return;
+	}
+	
   if(nrhs == 2) {
     if(mxGetNumberOfElements(prhs[1]) != 1) mexErrMsgTxt("n is not scalar.");
     bins = *mxGetPr(prhs[1]);
