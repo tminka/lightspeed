@@ -35,6 +35,9 @@ double my_nan(void) {
 }
 #define NAN my_nan()
 #endif
+#ifndef isfinite
+#define isfinite finite
+#endif
 #endif
 
 /****************************************************************************/
@@ -46,7 +49,7 @@ double logSum(double a, double b)
     double t = a; a = b; b = t;
   }
   /* log(exp(a) + exp(b)) = a + log(1 + exp(b-a)) */
-  if(!finite(b)) return a;
+  if(!isfinite(b)) return a;
   return a + log(1 + exp(b-a));
 }
 
@@ -232,7 +235,7 @@ double gammaln(double x)
   double denom, x1, series;
   if(x < 0) return NAN;
   if(x == 0) return INFINITY;
-  if(!finite(x)) return x;
+  if(!isfinite(x)) return x;
   /* Lanczos method */
   denom = x+1;
   x1 = x + 5.5;
@@ -269,8 +272,7 @@ double digamma(double x)
     s6 = 1./240,
     s7 = 1./132,
     s8 = 691./32760,
-    s9 = 1./12,
-    s10 = 3617./8160;
+    s9 = 1./12;
   double result;
   /* Illegal arguments */
   if((x == neginf) || isnan(x)) {
@@ -310,13 +312,10 @@ double digamma(double x)
     double r = 1/x, t;
     result += log(x) - 0.5*r;
     r *= r;
-#if 0
-    result -= r * (s3 - r * (s4 - r * (s5 - r * (s6 - r * s7))));
-#else
-    /* this version for lame compilers */
-    t = (s5 - r * (s6 - r * s7));
+		/* some compilers cannot handle a single large expression */
+		t = s7 - r * (s8 - r * s9);
+    t = s5 - r * (s6 - r * t);
     result -= r * (s3 - r * (s4 - r * t));
-#endif
   }
   return result;
 }

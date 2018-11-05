@@ -35,6 +35,8 @@ end
 if atleast83
 	flags = [flags ' -silent '];
 end
+% To catch ANSI C violations with gcc:
+%flags = [flags ' CFLAGS=''-Wall -std=c99'' '];
 replace_repmat = ~atleast82;
 
 % copy matlab's original repmat.m as xrepmat.m

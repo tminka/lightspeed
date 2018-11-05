@@ -88,7 +88,6 @@ void repmat(char *dest, const char *src, mwSize ndim, mwSize *destdimsize,
 void repmat2(char *dest, const char *src, mwSize ndim, mwSize *destdimsize, 
 	    mwSize *dimsize, const mwSize *dims, mwSize *rep) 
 {
-  mwSize d = ndim-1;
   mwSize i,j,k;
   mwSize chunk = dimsize[0];
   char *p;

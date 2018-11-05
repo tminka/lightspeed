@@ -29,7 +29,7 @@ void mexFunction(int nlhs, mxArray *plhs[],
   mwSize len, i, bins;
 	double *outdata;
 	mxClassID class;
-	mxArray *nArray;
+	const mxArray *nArray;
 
   if((nrhs < 1) || (nrhs > 2))
     mexErrMsgTxt("Usage: h = int_hist(x, n)");
@@ -88,6 +88,7 @@ void mexFunction(int nlhs, mxArray *plhs[],
 			break;
 		default:
 			mexErrMsgTxt("First argument is not a supported type");
+			return;
 		}
   }
 

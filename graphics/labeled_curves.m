@@ -24,8 +24,10 @@ function h = labeled_curves(x,y,varargin)
 % By default, the structure field names are used as labels.  Alternatively,
 % you can specify labels as an optional argument:
 %
-% LABELED_CURVES(X,Y,...,'labels',LABELS) uses the given labels for the legend 
-% (LABELS is a cell array of strings). Otherwise the field names are used.  
+% LABELED_CURVES(X,Y,...,'labels',LABELS) uses the given labels for the legend.
+% Otherwise the field names are used.  
+% If Y is a matrix, LABELS is a cell array of strings.  
+% If Y is a structure, LABELS is a structure.
 %
 % LABELED_CURVES(X,Y,...,'plotfun',PLOTFUN) uses PLOTFUN instead of 'plot' to 
 % draw the curves.  For example, 'semilogx', 'semilogy', or 'loglog'.
@@ -102,6 +104,13 @@ else
 end
 if isempty(labels)
   labels = fields;
+elseif isstruct(labels)
+	labelArray = {};
+	for i = 1:length(fields)
+		field = fields{i};
+		labelArray{end+1} = labels.(field);
+	end
+	labels = labelArray;
 end
 
 lastx = struct;
