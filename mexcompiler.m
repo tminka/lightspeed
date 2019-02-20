@@ -85,7 +85,12 @@ options.COMPILER = cc.Details.CompilerExecutable;
 options.COMPFLAGS = cc.Details.CompilerFlags;
 options.OPTIMFLAGS = cc.Details.OptimizationFlags;
 arch = computer('arch');
-options.LIBLOC = fullfile(matlabroot,'extern','lib',arch,cc.ShortName);
+if strcmpi(cc.Manufacturer,'microsoft')
+	foldername = cc.Manufacturer;
+else
+	foldername = compiler;
+end
+options.LIBLOC = fullfile(matlabroot,'extern','lib',arch,foldername);
 vsinstalldir = cc.Location;
 options.VSINSTALLDIR = vsinstalldir;
 if ispc
