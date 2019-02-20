@@ -94,8 +94,7 @@ options.LIBLOC = fullfile(matlabroot,'extern','lib',arch,foldername);
 vsinstalldir = cc.Location;
 options.VSINSTALLDIR = vsinstalldir;
 if ispc
-	% http://msdn.microsoft.com/en-us/library/x4d2c09s(VS.80).aspx
-	if exist(fullfile(vsinstalldir,'VC','bin','x86_amd64','cl.exe'))
+	if strcmpi(arch, 'win64')
 		options.vcvarsopts = 'x86_amd64';
 	else
 		options.vcvarsopts = 'x86';
